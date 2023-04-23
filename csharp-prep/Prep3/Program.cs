@@ -16,7 +16,7 @@ class Program
             //Value = Console.ReadLine();
             //Magic = int.Parse(Value);
 
-            Magic = randomGenerator.Next(1, 100);
+            Magic = randomGenerator.Next(1, 101);
             Counter = 0;
             Console.WriteLine("There is a Magig Number and you must guess it!");
 
