@@ -19,7 +19,7 @@ class Program
         string[] Lines = System.IO.File.ReadAllLines(FilNam);
         foreach(string Line in Lines)
         {
-            // Console.WriteLine(Line); // Just as is recorded in the text file
+            // Console.WriteLine(Line); // Just as it is recorded in the text file
             string[] Parts = Line.Split("__");
             switch(Parts[0].Substring(0,1))
             {
@@ -147,7 +147,7 @@ class Program
 
             if (Opt == "2")
             {
-                if(Journal.Count != 0) foreach(Entrie Ent in Journal) Console.WriteLine($"Date and Time: {Ent._dateTimeText} - Question: {Ent._quest}\nYour answer: {Ent._ans}");
+                if(Journal.Count != 0) foreach(Entrie Ent in Journal) Ent.ShowEntrie();
                 else Console.WriteLine("Journal List is empty!");
                 Console.Write("Press <Enter> to exit...");
                 while (Console.ReadKey().Key != ConsoleKey.Enter);
