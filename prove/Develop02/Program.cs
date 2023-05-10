@@ -74,7 +74,7 @@ class Program
 
         do
         {
-            Console.Write("Please select one of the following choices:\n1-Write\n2-Display\n3-Load\n4-Save\n5-Quit\nWhat would you like to do: ");
+            Console.Write("Please select one of the following choices:\n1-Write\n2-Display\n3-Load\n4-Save\n5-Quit\nWhat would you like to do? ");
             Opt = Console.ReadLine();
             if (Opt == "1")
             {
