@@ -77,7 +77,7 @@ class Program
                     }
 
                     DateAndTime = DateTime.Now;
-                    DateTimeText = DateAndTime.ToShortDateString() + " at " + DateAndTime.ToShortTimeString();
+                    DateTimeText = DateAndTime.ToShortDateString() + " at " + DateAndTime.ToLongTimeString();
                     Entr = new Entrie(Quest, Ans, DateTimeText);
                     Journal.Add(Entr);
                 }
