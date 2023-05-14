@@ -86,7 +86,7 @@ class Program
                         else
                         {
                             FileName = "";
-                            while (FileName == "")
+                            while (FileName.Trim() == "")
                             {
                                 Console.Write("What is the file name? ");
                                 FileName = Console.ReadLine();
