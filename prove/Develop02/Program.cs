@@ -2,27 +2,25 @@ using System;
 
 class Program
 {
-    static void SaveToFile(List<Entrie> Journ, string FilNam)
+    static void SaveToFile(Journal Journ, string FilNam)
     {
         Console.WriteLine("Saving to file...");
         using (StreamWriter outputFile = new StreamWriter(FilNam))
         {
-            foreach(Entrie Entr in Journ) outputFile.WriteLine($"{Entr._quest}__{Entr._ans}__{Entr._dateTimeText}");
+            foreach(Entrie Entr in Journ._entries) outputFile.WriteLine($"{Entr._quest}__{Entr._ans}__{Entr._dateTimeText}");
         }
     }
 
-    static List<Entrie> ReadFromFile(string FilNam)
+    static Journal ReadFromFile(string FilNam)
     {
         Console.WriteLine("Reading List from a file...");
-        List<Entrie> Journ = new List<Entrie>();
-        Entrie Entr0;
+        Journal Journ = new Journal();
         string[] Lines = System.IO.File.ReadAllLines(FilNam);
         foreach(string Line in Lines)
         {
             // Console.WriteLine(Line); // Just as it is recorded in the text file
             string[] Parts = Line.Split("__");
-            Entr0 = new Entrie(Parts[0], Parts[1], Parts[2]);
-            Journ.Add(Entr0);
+            Journ.AddEntrie(Parts[0], Parts[1], Parts[2]);
         }
         return Journ;
     }
@@ -35,8 +33,7 @@ class Program
         Random randomGenerator = new Random();
         int Rand;
         string Opt, Quest, Ans, DateTimeText, FileName;
-        Entrie Entr;
-        List<Entrie> Journal = new List<Entrie>();
+        Journal Jour= new Journal();
 
         do
         {
@@ -78,25 +75,24 @@ class Program
 
                     DateAndTime = DateTime.Now;
                     DateTimeText = DateAndTime.ToShortDateString() + " at " + DateAndTime.ToLongTimeString();
-                    Entr = new Entrie(Quest, Ans, DateTimeText);
-                    Journal.Add(Entr);
+                    Jour.AddEntrie(Quest, Ans, DateTimeText);
                 }
                 else
                 {
-                    if(Journal.Count == 0 & Opt != "3")  Console.WriteLine("Journal List is empty!");
+                    if(Jour._entries.Count == 0 & Opt != "3")  Console.WriteLine("Journal List is empty!");
                     else
                     {
-                        if(Opt == "2") foreach(Entrie Ent in Journal) Ent.ShowEntrie();
+                        if(Opt == "2") foreach(Entrie Ent in Jour._entries) Ent.ShowEntrie();
                         else
                         {
                             FileName = "";
                             while (FileName == "")
                             {
-                                Console.Write("What is the file name: ");
+                                Console.Write("What is the file name? ");
                                 FileName = Console.ReadLine();
                             }
-                            if (Opt == "3") Journal.AddRange(ReadFromFile(FileName));
-                            else SaveToFile(Journal,FileName);
+                            if (Opt == "3") Jour._entries.AddRange(ReadFromFile(FileName)._entries);
+                            else SaveToFile(Jour,FileName);
                         }
                     }
                     Console.Write("Please press <Enter> to exit...");
