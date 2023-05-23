@@ -32,8 +32,9 @@ class Program
         DateTime DateAndTime;
         Random randomGenerator = new Random();
         int Rand;
-        string Opt, Quest, Ans, DateTimeText, FileName;
+        string Opt, Ans, DateTimeText, FileName;
         Journal Jour= new Journal();
+        Prompt Question = new Prompt("default");
 
         do
         {
@@ -44,29 +45,11 @@ class Program
             {
                 if (Opt == "1")
                 {
-                    Rand = randomGenerator.Next(1, 6);
+                    Rand = randomGenerator.Next(Question._prompt.Count);
                     Ans = "";
                     DateTimeText = "";
 
-                    switch(Rand)
-                    {
-                        case 1:
-                            Quest = "1-Who was the most interesting person I interacted with today?";
-                            break;
-                        case 2:
-                            Quest = "2-What was the best part of my day?";
-                            break;
-                        case 3:
-                            Quest = "3-How did I see the hand of the Lord in my life today?";
-                            break;
-                        case 4:
-                            Quest = "4-What was the strongest emotion I felt today?";
-                            break;
-                        default:
-                            Quest = "5-If I had one thing I could do over today, what would it be?";
-                            break;
-                    }
-                    Console.WriteLine(Quest);
+                    Console.WriteLine(Question.ObtainQuest(Rand));
                     while (Ans.Trim() == "")
                     {
                         Console.Write("Please write something about: ");
@@ -75,7 +58,7 @@ class Program
 
                     DateAndTime = DateTime.Now;
                     DateTimeText = DateAndTime.ToShortDateString() + " at " + DateAndTime.ToLongTimeString();
-                    Jour.AddEntrie(Quest, Ans, DateTimeText);
+                    Jour.AddEntrie(Question.ObtainQuest(Rand), Ans, DateTimeText);
                 }
                 else
                 {
