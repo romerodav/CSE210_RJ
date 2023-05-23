@@ -45,7 +45,7 @@ class Program
             {
                 if (Opt == "1")
                 {
-                    Rand = randomGenerator.Next(Question._prompt.Count);
+                    Rand = randomGenerator.Next(Question.QuestQuant());
                     Ans = "";
                     DateTimeText = "";
 
