@@ -19,7 +19,6 @@ public class Prompt
             _prompt.Add("5-If I had one thing I could do over today, what would it be?");
         }
         else _prompt.Add(Quest);
-
     }
 
     public void AddQuest(string NewQuest)
