@@ -23,7 +23,7 @@ public class Prompt
 
     public void AddQuest(string NewQuest)
     {
-        _prompt.Add($"{_prompt.Count}-{NewQuest}?");
+        _prompt.Add($"{_prompt.Count+1}-{NewQuest}?");
     }
 
     public int QuestQuant()
@@ -34,7 +34,12 @@ public class Prompt
     public string ObtainQuest(int QuestNumber)
     {
 	    if(QuestNumber >= 0 & QuestNumber < _prompt.Count) return _prompt[QuestNumber];
-        else return "";
+        else return "Questions are over";
+    }
+
+    public void DelQuest(int QuestNumber)
+    {
+        if(QuestNumber >= 0 & QuestNumber < _prompt.Count) _prompt.RemoveAt(QuestNumber);
     }
 
     public void ListQuest()

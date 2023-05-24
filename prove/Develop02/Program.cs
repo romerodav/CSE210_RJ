@@ -43,22 +43,42 @@ class Program
 
             if (Opt == "1" | Opt == "2" | Opt == "3" | Opt == "4")
             {
-                if (Opt == "1")
+                if(Opt == "1")
                 {
-                    Rand = randomGenerator.Next(Question.QuestQuant());
-                    Ans = "";
-                    DateTimeText = "";
-
-                    Console.WriteLine(Question.ObtainQuest(Rand));
-                    while (Ans.Trim() == "")
+                    if(Question.QuestQuant() > 0)
                     {
-                        Console.Write("Please write something about: ");
-                        Ans =  Console.ReadLine();
-                    }
+                        Rand = randomGenerator.Next(Question.QuestQuant());
+                        Ans = "";
+                        DateTimeText = "";
 
-                    DateAndTime = DateTime.Now;
-                    DateTimeText = DateAndTime.ToShortDateString() + " at " + DateAndTime.ToLongTimeString();
-                    Jour.AddEntrie(Question.ObtainQuest(Rand), Ans, DateTimeText);
+                        Console.WriteLine(Question.ObtainQuest(Rand));
+                        while(Ans.Trim() == "")
+                        {
+                            Console.Write("Please write something about: ");
+                            Ans =  Console.ReadLine();
+                        }
+
+                        DateAndTime = DateTime.Now;
+                        DateTimeText = DateAndTime.ToShortDateString() + " at " + DateAndTime.ToLongTimeString();
+                        Jour.AddEntrie(Question.ObtainQuest(Rand), Ans.Trim(), DateTimeText);
+                        Question.DelQuest(Rand);
+                    }
+                    else
+                    {
+                        Console.Write("Questions are over. Would you like to enter a question for the next time? (Y/N): ");
+                        Ans = Console.ReadLine();
+                        Ans = Ans.Trim();
+                        if(Ans.ToUpper() == "Y")
+                        {
+                            Ans = "";
+                            while(Ans.Trim() == "")
+                            {
+                                Console.Write("Please write your question: ");
+                                Ans =  Console.ReadLine();
+                            }
+                            Question.AddQuest(Ans.Trim());
+                        }
+                    }
                 }
                 else
                 {
