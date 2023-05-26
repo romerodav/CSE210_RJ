@@ -73,11 +73,19 @@ class Program
                             Ans = "";
                             while(Ans.Trim() == "")
                             {
-                                Console.Write("Please write your question: ");
+                                Console.Write("Please write it without the question mark: ");
                                 Ans =  Console.ReadLine();
                             }
-                            Question.AddQuest(Ans.Trim());
                         }
+                        else
+                        {
+                            Console.Write("Would you like to recover the previous questions for the next time? Y/N: ");
+                            Ans =  Console.ReadLine();
+                            Ans = Ans.Trim();
+                            if(Ans.ToUpper() == "Y") Ans = "default";
+                            else Ans = "";
+                        }
+                        if(Ans != "") Question.AddQuest(Ans.Trim());
                     }
                 }
                 else
