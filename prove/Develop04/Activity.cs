@@ -33,7 +33,7 @@ public class Activity
         _description = description;
     }
 
-    public void SeEnding(string ending = "")
+    public void SetEnding(string ending = "")
     {
         _ending = ending;
     }
@@ -60,5 +60,22 @@ public class Activity
     public int GetDuration()
     {
         return _duration;
+    }
+
+    public void ActivityIntrod()
+    {
+        string aux;
+        int seconds;
+        Console.Write($"{_welcome}\n\n{_description}\n\nHow long, in seconds, would you like for your session? ");
+        aux = Console.ReadLine();
+        seconds = int.Parse(aux.Trim());
+        _duration = seconds;
+        Console.Clear();
+        Console.WriteLine("Get ready...\n");
+    }
+
+    public void ActivityClose()
+    {
+        Console.WriteLine($"Well done!!\n\nYou have completed another {_duration} seconds of the {_ending} Activity");
     }
 }
