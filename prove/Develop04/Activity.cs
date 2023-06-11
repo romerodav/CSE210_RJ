@@ -66,9 +66,14 @@ public class Activity
     {
         string aux;
         int seconds;
-        Console.Write($"{_welcome}\n\n{_description}\n\nHow long, in seconds, would you like for your session? ");
-        aux = Console.ReadLine();
-        seconds = int.Parse(aux.Trim());
+
+        Console.WriteLine($"{_welcome}\n\n{_description}\n");
+        do
+        {
+            Console.Write("How long, in seconds, would you like for your session? ");
+            aux = Console.ReadLine();
+            seconds = int.Parse(aux.Trim());
+        }while(seconds <= 0);
         _duration = seconds;
         Console.Clear();
         Console.WriteLine("Get ready...\n");
@@ -76,6 +81,10 @@ public class Activity
 
     public void ActivityClose()
     {
-        Console.WriteLine($"Well done!!\n\nYou have completed another {_duration} seconds of the {_ending} Activity");
+        Spin spinner = new Spin();
+
+        Console.WriteLine("Well done!!");
+        spinner.SpinRun();
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_ending} Activity");
     }
 }

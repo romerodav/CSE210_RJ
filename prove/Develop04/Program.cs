@@ -10,6 +10,7 @@ class Program
         Breathing breath = new Breathing();
         Reflecting reflect = new Reflecting();
         Listing list = new Listing();
+        Spin spinner = new Spin();
 
         do
         {
@@ -38,8 +39,9 @@ class Program
                         list.ActivityClose();
                     }
                 }
-                Console.Write("Please press <Enter> to exit...");
-                while (Console.ReadKey().Key != ConsoleKey.Enter);
+                /*Console.Write("Please press <Enter> to exit...");
+                while (Console.ReadKey().Key != ConsoleKey.Enter);*/
+                spinner.SpinRun();
             }
             Console.Clear();
         }while(opt != "4");
