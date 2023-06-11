@@ -24,7 +24,7 @@ public class Spin
     public void SpinRun()
     {
         DateTime startTime = DateTime.Now, endTime = startTime.AddSeconds(_durationSec);
-            int i=0;
+        int i = 0;
 
         while(DateTime.Now < endTime)
         {

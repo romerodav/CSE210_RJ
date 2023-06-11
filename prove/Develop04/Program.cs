@@ -24,6 +24,7 @@ class Program
                 if(opt == "1")
                 {
                     breath.ActivityIntrod();
+                    breath.BreathRun();
                     breath.ActivityClose();
                 }
                 else
