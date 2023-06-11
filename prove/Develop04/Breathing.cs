@@ -8,7 +8,7 @@ public class Breathing : Activity
     {
     }
 
-    public void BreathingRun()
+    public void BreathRun()
     {
 
     }

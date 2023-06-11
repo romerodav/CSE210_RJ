@@ -2,6 +2,7 @@ public class Activity
 {
     private string _welcome, _description, _ending;
     private int _duration;
+    private Spin _spinner = new Spin();
 
     public Activity()
     {
@@ -76,15 +77,15 @@ public class Activity
         }while(seconds <= 0);
         _duration = seconds;
         Console.Clear();
-        Console.WriteLine("Get ready...\n");
+        Console.WriteLine("Get ready...");
+        _spinner.SpinRun();
+        Console.WriteLine();
     }
 
     public void ActivityClose()
     {
-        Spin spinner = new Spin();
-
         Console.WriteLine("Well done!!");
-        spinner.SpinRun();
+        _spinner.SpinRun();
         Console.WriteLine($"You have completed another {_duration} seconds of the {_ending} Activity");
     }
 }

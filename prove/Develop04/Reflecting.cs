@@ -8,7 +8,7 @@ public class Reflecting : Activity
     {
     }
 
-    public void ReflectingRun()
+    public void ReflectRun()
     {
 
     }
