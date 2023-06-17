@@ -32,11 +32,13 @@ class Program
                     if (opt == "2")
                     {
                         reflect.ActivityIntrod();
+                        reflect.ReflectRun();
                         reflect.ActivityClose();
                     }
                     else
                     {
                         list.ActivityIntrod();
+                        list.ListRun();
                         list.ActivityClose();
                     }
                 }

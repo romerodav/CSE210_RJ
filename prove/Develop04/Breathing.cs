@@ -11,18 +11,19 @@ public class Breathing : Activity
     public void BreathRun()
     {
         DateTime startTime = DateTime.Now, endTime = startTime.AddSeconds(GetDuration());
-        int i = 0, ban = 0;
+        int i = 0, ban = 0, breathIn = 4, breathOut = 6, pace =1000;
 
         while(DateTime.Now < endTime)
         {
             if(ban == 0)
             {
                 Console.Write("Breath in...");
-                if(i <= 4)
+                if(i <= breathIn)
                 {
-                    Console.Write($"{4-i}");
-                    Thread.Sleep(1000);
-                    Console.Write("\r \r");
+                    if(i < breathIn) Console.Write($"{breathIn-i}");
+                    else Console.Write(" ");
+                    Thread.Sleep(pace);
+                    Console.Write("\r");
                     i++;
                 }
                 else
@@ -34,13 +35,14 @@ public class Breathing : Activity
             }
             else
             {
-                Console.Write("Now breath out...");
-                if(i <= 6)
+                if(i <= breathOut)
                 {
-                    Console.Write($"{6-i}");
-                    Thread.Sleep(1000);
-                    Console.Write("\r \r");
+                    if(i < breathOut) Console.Write($"Now breath out...{breathOut-i}");
+                    else Console.Write("Now breath out... ");
+                    Thread.Sleep(pace);
+                    if(i < breathOut) Console.Write("\r");
                     i++;
+                    if(i > breathOut) Console.WriteLine();
                 }
                 else
                 {
@@ -50,6 +52,6 @@ public class Breathing : Activity
                 }
             }
         }
-        Console.WriteLine();
+        Console.WriteLine("\n");
     }
 }

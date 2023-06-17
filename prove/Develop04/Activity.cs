@@ -79,7 +79,6 @@ public class Activity
         Console.Clear();
         Console.WriteLine("Get ready...");
         _spinner.SpinRun();
-        Console.WriteLine();
     }
 
     public void ActivityClose()
