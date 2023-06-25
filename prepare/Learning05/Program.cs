@@ -39,7 +39,7 @@ class Program
                     }
                     else
                     {
-                        if (op == "2")
+                        if(op == "2")
                         {
                             Console.Write("Please enter the rectangle width: ");
                             dimen = Console.ReadLine();
