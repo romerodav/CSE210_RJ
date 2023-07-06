@@ -1,0 +1,6 @@
+150
+CheckListGoal:To go to the Temple,Four times per year,40,20,4,1
+SimpleGoal:To repair my bike,To carry it to the repairman,20,False
+EternalGoal:To study the Scriptures,Each day,10
+SimpleGoal:To watch the Flash movie,At the cinema,20,True
+CheckListGoal:To make a donation,To someone in need,30,10,2,2

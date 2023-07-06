@@ -6,60 +6,33 @@ class Program
     {
         Console.WriteLine("Hello Develop05 World!");
 
-
-        string op, color, dimen;
-        double dim, dimad;
-
+        string op;
+        Goals goals = new Goals();
 
         do
         {
-            Console.Write("Choose the shape you wish to work with:\n\n1-Create a New Goal\n2-Rectangle\n3-Circle\n4-List\n5-Quit\n\nPlease enter your option: ");
+            Console.Write($"You have {goals.GetPoints()} points\n\nMenu Options:\n\n1-Create a New Goal\n2-List Goals\n3-Save Goals\n4-Load Goals\n5-Record Event\n6-Quit\n\nPlease enter your option: ");
             op = Console.ReadLine();
             op = op.Trim();
 
             if(op == "1" | op == "2" | op == "3" | op == "4" | op == "5")
             {
-                if(op == "4") Console.WriteLine($"{op} color {op} and area {op}");
+                if(op == "1") goals.Create();
                 else
                 {
-                    Console.Write("Please enter the shape color: ");
-                    color = Console.ReadLine();
-                    color = color.Trim();
-
-                    if(op == "1")
-                    {
-                        Console.Write("Please enter the square side: ");
-                        dimen = Console.ReadLine();
-                        dim = double.Parse(dimen.Trim());
-
-                        Console.WriteLine($"Square color {op} and area {op}");
-
-                    }
+                    if(goals.Account() == 0 & op != "4")  Console.WriteLine("There are NO goals created still!");
                     else
                     {
-                        if(op == "2")
+                        if(op == "2" | op == "5")
                         {
-                            Console.Write("Please enter the rectangle width: ");
-                            dimen = Console.ReadLine();
-                            dim = double.Parse(dimen.Trim());
-                            Console.Write("Please enter the rectangle length: ");
-                            dimen = Console.ReadLine();
-                            dimad = double.Parse(dimen.Trim());
-
-                            Console.WriteLine($"Square color {op} and area {op}");
-
+                            goals.List();
+                            if(op == "5") goals.RecordEvent();
                         }
                         else
                         {
-                            if(op == "3") Console.Write("Please enter the circle radius: ");
-                            else
-                            {
-                                dimen = Console.ReadLine();
-                                dim = double.Parse(dimen.Trim());
-                            }
-
-                            Console.WriteLine($"Square color {op} and area {op}");
-
+                            goals.FileName();
+                            if(op == "3") goals.SaveToFile();
+                            else goals.ReadFromFile();
                         }
                     }
                 }
