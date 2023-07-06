@@ -156,12 +156,12 @@ public class Goals
         List<Goal> goals = new List<Goal>();
 
         string[] lines = System.IO.File.ReadAllLines(_fileName);
-	    points = int.Parse(lines[0].Trim());
 
         foreach(string line in lines)
         {
             // Console.WriteLine(Line); // Just as it is recorded in the text file
-            if(line != lines[0])
+            if(line == lines[0]) points = int.Parse(line.Trim());
+            else
             {
                 string[] part = line.Split(":");
                 string[] field = part[1].Split(",");
