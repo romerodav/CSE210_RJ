@@ -105,7 +105,7 @@ class Program
                         else
                         {
                             videos.AddRange(videoRepository);
-                            Console.WriteLine("Repostory Added");
+                            Console.WriteLine("Repository Added");
                         }
                     }
                 }
