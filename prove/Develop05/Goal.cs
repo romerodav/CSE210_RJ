@@ -1,7 +1,7 @@
 public abstract class Goal
 {
     private string _name, _descript;
-    private int _reward, _total, _bonus, _times, _comp;
+    private int _reward, _total, _bonus, _times, _winBonus, _comp;
 
     public Goal()
     {
@@ -11,10 +11,11 @@ public abstract class Goal
         _total = 0;
         _bonus = 0;
         _times = 0;
+        _winBonus = 0;
         _comp = 0;
     }
 
-    public Goal(string name, string descript, int reward, int total, int bonus, int times, int comp)
+    public Goal(string name, string descript, int reward, int total, int bonus, int times, int winBonus, int comp)
     {
         _name = name;
         _descript = descript;
@@ -22,10 +23,11 @@ public abstract class Goal
         _total = total;
         _bonus = bonus;
         _times = times;
+        _winBonus = winBonus;
         _comp = comp;
     }
 
-    public void Init(string name, string descript, int reward, int total = 0, int bonus = 0, int times = 0, int comp = 0)
+    public void Init(string name, string descript, int reward, int total = 0, int bonus = 0, int times = 0, int winBonus =0, int comp = 0)
     {
         _name = name;
         _descript = descript;
@@ -33,6 +35,7 @@ public abstract class Goal
         _total = total;
         _bonus = bonus;
         _times = times;
+        _winBonus = winBonus;
         _comp = comp;
     }
 
@@ -94,6 +97,16 @@ public abstract class Goal
     public virtual void SetTimes(int times)
     {
         _times = times;
+    }
+
+    public virtual int GetWinBonus()
+    {
+        return _comp;
+    }
+
+    public virtual void SetWinBonus(int winBonus = 1)
+    {
+        _winBonus = winBonus;
     }
 
     public virtual int GetComp()

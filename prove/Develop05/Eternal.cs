@@ -4,7 +4,7 @@ public class Eternal : Goal
     {
     }
 
-    public Eternal(string name, string descript, int reward, int total = 0, int bonus = 0, int times = 0, int comp = 0) : base(name, descript, reward, total, bonus, times, comp)
+    public Eternal(string name, string descript, int reward, int total = 0, int bonus = 0, int times = 0, int winBonus = 0, int comp = 0) : base(name, descript, reward, total, bonus, times, winBonus, comp)
     {
     }
 

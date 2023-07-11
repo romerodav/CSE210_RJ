@@ -4,7 +4,7 @@ public class Check : Goal
     {
     }
 
-    public Check(string name, string descript, int reward, int total, int bonus, int times = 0, int comp = 0) : base(name, descript, reward, total, bonus, times, comp)
+    public Check(string name, string descript, int reward, int total, int bonus, int times = 0, int winBonus = 0, int comp = 0) : base(name, descript, reward, total, bonus, times, winBonus, comp)
     {
     }
 
@@ -34,7 +34,8 @@ public class Check : Goal
             SetTimes(i);
             if(GetTimes() == GetTotal())
             {
-                SetComp(1);
+                SetWinBonus();
+                SetComp();
                 return GetReward() + GetBonus();
             }
             else return GetReward();

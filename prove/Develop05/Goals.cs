@@ -169,7 +169,7 @@ public class Goals
                 {
                     if(field[4] == field[5]) i = 1;
                     else i = 0;
-                    check = new Check(field[0],field[1],int.Parse(field[2]),int.Parse(field[4]),int.Parse(field[3]),int.Parse(field[5]),i);
+                    check = new Check(field[0],field[1],int.Parse(field[2]),int.Parse(field[4]),int.Parse(field[3]),int.Parse(field[5]),i,i);
                     goals.Add(check);
                 }
                 else
@@ -183,7 +183,7 @@ public class Goals
                     {
                         if(field[3] == "False") i = 0;
                         else i = 1;
-                        simple = new Simple(field[0],field[1],int.Parse(field[2]),0,0,0,i);
+                        simple = new Simple(field[0],field[1],int.Parse(field[2]),0,0,0,0,i);
                         goals.Add(simple);
                     }
                 }
@@ -214,8 +214,9 @@ public class Goals
         else
         {
             _points += SubT;
-            Console.WriteLine($"Congratulations! You won {SubT} points this time and have {_points} points now");
+            if(_goals[i-1].GetWinBonus() != 0) aux = $"{_goals[i-1].GetReward()} points plus a bonus of {_goals[i-1].GetBonus()}";
+            else aux = $"{SubT}";
+            Console.WriteLine($"Congratulations! You won {aux} points this time and have {_points} points now");
         }
     }
-
 }
