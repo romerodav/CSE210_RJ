@@ -20,7 +20,7 @@ class Program
 
         do
         {
-            Console.Write("Menu Options:\n\n1-Create a New Video Track\n2-List Video Tracks\n3-Add comment\n4-Load Pre Recorded Videos\n5-Quit\n\nPlease enter your option: ");
+            Console.Write("Menu Options:\n\n1-Create a New Video Track\n2-List Video Tracks\n3-Add comment\n4-Load Pre Recorded Video Tracks\n5-Quit\n\nPlease enter your option: ");
             op = Console.ReadLine();
             op = op.Trim();
 

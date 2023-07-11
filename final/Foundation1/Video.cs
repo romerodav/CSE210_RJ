@@ -66,6 +66,10 @@ public class Video
     public void Show()
     {
         Console.WriteLine($"{_title} video by {_author} has {_length} seconds");
-        if(_comments.Count > 0) foreach(Comment comment in _comments) comment.Show();
+        if(_comments.Count > 0)
+        {
+            Console.WriteLine("Comments:");
+            foreach(Comment comment in _comments) comment.Show();
+        }
     }
 }
