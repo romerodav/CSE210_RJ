@@ -70,7 +70,7 @@ public class Address
         _country = country.Trim();
     }
 
-    public int ItIsInUSA()
+    public int IsInUSA()
     {
         if(_country.ToUpper() == "USA") return 1;
         else return 0;
