@@ -48,7 +48,7 @@ public class Video
         _length = length;
     }
 
-    public int CommentNumber()
+    public int CommentQuant()
     {
         return _comments.Count;
     }
