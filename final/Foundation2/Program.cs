@@ -102,7 +102,7 @@ class Program
                                 if(order.HowManyProductHas() > 0)
                                 {
                                     Console.WriteLine($"{order.PackingLabel()}");
-                                    Console.WriteLine($"{order.TotalCost()}");
+                                    Console.WriteLine($"Total cost $ {order.TotalCost()}");
                                 }
                                 i++;
                             }
