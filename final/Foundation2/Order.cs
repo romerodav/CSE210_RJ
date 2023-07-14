@@ -80,6 +80,11 @@ public class Order
         else return 35.00;
     }
 
+    public int HowManyProductHas()
+    {
+        return _products.Count;
+    }
+
     public void AddProduct(string name, int id, float price, int quantity)
     {
         _products.Add(new Product(name, id, price, quantity));

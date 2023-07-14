@@ -6,20 +6,27 @@ class Program
     {
         Console.WriteLine("Hello Foundation2 World!");
 
-        Product p1 = new Product("Frezzer", 10, 400, 3), p2 = new Product("SmartTV", 11, 800,2), p3 = new Product("kitchen", 12, 500,3), p4 = new Product("Hairdryer", 13, 24, 4), p5 = new Product("It overheat!"), c6 = new Product(pSusan Duhart", "I am still waiting for it"), c7 = new Product(pKent Barly", "The adapter is missing"), c8 = new Product(pRobert Garcia", "One of their pieces came damaged"), c9 = new Product(pMarcelo Quiroga", "It help me to optimize my time"), c10 = new Product(pRomualdo Perez", "It was not like the Internet picture"), c11 = new Product(pVeronica Pedernera","It is very fast"), c12 = new Product(pHugo Martinez", "I liked the previous version"), c13 = new Product(pJohn Smith", "I do not like its color"), c14 = new Product(pClaudia Suarez", "Nice design"), c15 = new Product(pRaul Paez", "It is rather complicate to use"), c16 = new Product(pMichael West", "Just worked the first two months"), Product;p        List<Product>pProductsp = new List<Product>p){c1, c2, c3, c4}, Productsp = new List<Product>p){c5, c6, c7, c8}, Productsp = new List<Product>p){c9, c10, c11, c12}, Productsp = new List<Product>p){c13, c14, c15, c16};
-        Video v1 = new Video("SmartTV","Horacio Calamaro", 50), v2 = new Video ("LapTop", "Diana Seneca",80), v3 = new Video("Smart Watch", "Victorio Fanego", 60), v4 = new Video("Mobile Phone","Jessica Camargo", 75), video;
-        v1.AddProductspProductsp);
-        v2.AddProductspProductsp);
-        v3.AddProductspProductsp);
-        v4.AddProductspProductsp);
-        List<Video> videos = new List<Video>(), videoRepository = new List<Video>(){v1, v2, v3, v4};
+        List<Order> orders = new List<Order>(), ordeRepository;
+        Order ord1 = new Order("Cliftom Roberts", "1456", "Abraham Lincoln St", "Miami", "Florida", "USA");
+        ord1.AddProduct("Frezzer", 7310, 400, 3);
+        ord1.AddProduct("SmartTV", 311, 800,2);
+        ord1.AddProduct("kitchen", 112, 500,3);
+        Order ord2 = new Order("Marcelo Caramayo", "379", "John F Kennedy St", "Colonia Juarez", "Chihuahua", "Mexico");
+        ord2.AddProduct("kitchen", 213, 500,3);
+        ord2.AddProduct("HairDryer", 514, 124, 4);
+        ord2.AddProduct("Washing Machine", 815, 290, 2);
+        Order ord3 = new Order("Charles Newton", "3552", "Benjamin Franklin St", "Atlanta", "Georgia", "USA");
+        ord3.AddProduct("Mobile Phone", 616, 690, 2);
+        ord3.AddProduct("DeskTop", 917, 220, 2);
+        ord3.AddProduct("LapTop", 418, 700, 3);
+        ordeRepository = new List<Order>(){ord1, ord2, ord3};
 
         int i, length;
-        string op, name, comm, title, author, aux;
+        string op, name, comm, customer, stNumber, street, city, stateOrProv, country, aux;
 
         do
         {
-            Console.Write("Menu Options:\n\n1-Create a New Video Track\n2-List Video Tracks\n3-Add Product\p4-Load Pre Recorded Video Tracks\n5-Quit\n\nPlease enter your option: ");
+            Console.Write("Menu Options:\n\n1-Create an Order Track\n2-List Orders\n3-Add Product\np4-Load Pre Saved Orders\n5-Quit\n\nPlease enter your option: ");
             op = Console.ReadLine();
             op = op.Trim();
 
@@ -29,45 +36,73 @@ class Program
                 {
                     do
                     {
-                        Console.Write("What is the title of the video? ");
-                        title = Console.ReadLine();
-                        title = title.Trim();
-                    }while(title == "");
+                        Console.Write("What is the customer of the order? ");
+                        customer = Console.ReadLine();
+                        customer = customer.Trim();
+                    }while(customer == "");
 
                     do
                     {
-                        Console.Write("Who is the author of the video? ");
-                        author = Console.ReadLine();
-                        author = author.Trim();
-                    }while(author == "");
+                        Console.Write("Who is the address number at the street? ");
+                        stNumber = Console.ReadLine();
+                        stNumber = stNumber.Trim();
+                    }while(stNumber == "");
 
                     do
+                    {
+                        Console.Write("What is the street name? ");
+                        street = Console.ReadLine();
+                        street = street.Trim();
+                    }while(street == "");
+
+                    do
+                    {
+                        Console.Write("What is the city name? ");
+                        city = Console.ReadLine();
+                        city = city.Trim();
+                    }while(city == "");
+
+                    do
+                    {
+                        Console.Write("What is the state or province? ");
+                        stateOrProv = Console.ReadLine();
+                        stateOrProv = stateOrProv.Trim();
+                    }while(stateOrProv == "");
+
+                    Console.Write("It is in USA? Y/N: ");
+                    aux = Console.ReadLine();
+                    aux = aux.Trim();
+                    if(aux.ToUpper() == "Y") country = "USA";
+                    else
                     {
                         do
                         {
-                            Console.Write("Which is the length in seconds of the video? ");
-                            aux = Console.ReadLine();
-                            aux = aux.Trim();
-                        }while(aux == "");
-                        length = int.Parse(aux);
-                    }while(length <= 0);
+                            Console.Write("What is the country name? ");
+                            country = Console.ReadLine();
+                            country = country.Trim();
+                        }while(country == "" | country.ToUpper() == "USA");
+                    }
 
-                    video= new Video(title,author,length);
-                    videos.Add(video);
+                    orders.Add(new Order(customer,stNumber,street, city, stateOrProv, country));
                 }
                 else
                 {
-                    if(videos.Count == 0 & op != "4")  Console.WriteLine("There are NO video tracks entered still!");
+                    if(orders.Count == 0 & op != "4")  Console.WriteLine("There are NO orders entered still!");
                     else
                     {
                         if(op == "2" | op == "3")
                         {
                             i = 0;
-                            Console.WriteLine("Video Tracks entered:");
-                            foreach(Video vid in videos)
+                            Console.WriteLine("Orders entered:");
+                            foreach(Order order in orders)
                             {
                                 Console.Write($"{i+1}-");
-                                vid.Show();
+                                Console.WriteLine($"{order.ShippingLabel()}");
+                                if(order.HowManyProductHas() > 0)
+                                {
+                                    Console.WriteLine($"{order.PackingLabel()}");
+                                    Console.WriteLine($"{order.TotalCost()}");
+                                }
                                 i++;
                             }
                             if(op == "3")
@@ -76,12 +111,12 @@ class Program
                                 {
                                     do
                                     {
-                                        Console.Write("To which of those videos do you wish to add a Product?p");
+                                        Console.Write("To which of those orders do you wish to add a product?");
                                         aux = Console.ReadLine();
                                         aux = aux.Trim();
                                     }while(aux == "");
                                     i = int.Parse(aux);
-                                }while(i <= 0 | i > videos.Count);
+                                }while(i <= 0 | i > orders.Count);
 
                                 do
                                 {
@@ -92,19 +127,19 @@ class Program
 
                                 do
                                 {
-                                    Console.Write($"Please add your Product po the video {i}: ");
+                                    Console.Write($"Please add your Product po the order {i}: ");
                                     comm = Console.ReadLine();
                                     comm = comm.Trim();
                                 }while(comm == "");
 
                                 Product p new Product(pame,comm);
-                                videos[i-1].AddProduct(product)p
+                                orders[i-1].AddProduct(product)p
                             }
                         }
                         else
                         {
-                            videos.AddRange(videoRepository);
-                            Console.WriteLine("Repository Added");
+                            orders.AddRange(ordeRepository);
+                            Console.WriteLine("Repository Order Added");
                         }
                     }
                 }
