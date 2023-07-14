@@ -21,12 +21,13 @@ class Program
         ord3.AddProduct("LapTop", 418, 700, 3);
         ordeRepository = new List<Order>(){ord1, ord2, ord3};
 
-        int i, length;
-        string op, name, comm, customer, stNumber, street, city, stateOrProv, country, aux;
+        double price;
+        int i, prodId, quant;
+        string op, prodName, customer, stNumber, street, city, stateOrProv, country, aux;
 
         do
         {
-            Console.Write("Menu Options:\n\n1-Create an Order Track\n2-List Orders\n3-Add Product\np4-Load Pre Saved Orders\n5-Quit\n\nPlease enter your option: ");
+            Console.Write("Menu Options:\n\n1-Create an Order Track\n2-List Orders\n3-Add Product\n4-Load Pre Saved Orders\n5-Quit\n\nPlease enter your option: ");
             op = Console.ReadLine();
             op = op.Trim();
 
@@ -36,14 +37,14 @@ class Program
                 {
                     do
                     {
-                        Console.Write("What is the customer of the order? ");
+                        Console.Write("Who is the customer of the order? ");
                         customer = Console.ReadLine();
                         customer = customer.Trim();
                     }while(customer == "");
 
                     do
                     {
-                        Console.Write("Who is the address number at the street? ");
+                        Console.Write("What is the address number at the street? ");
                         stNumber = Console.ReadLine();
                         stNumber = stNumber.Trim();
                     }while(stNumber == "");
@@ -120,20 +121,45 @@ class Program
 
                                 do
                                 {
-                                    Console.Write("What is your name? ");
-                                    name = Console.ReadLine();
-                                    name = name.Trim();
-                                }while(name == "");
+                                    Console.Write("What is the product name? ");
+                                    prodName = Console.ReadLine();
+                                    prodName = prodName.Trim();
+                                }while(prodName == "");
 
                                 do
                                 {
-                                    Console.Write($"Please add your Product po the order {i}: ");
-                                    comm = Console.ReadLine();
-                                    comm = comm.Trim();
-                                }while(comm == "");
+                                    do
+                                    {
+                                        Console.Write("What is the product Id? It should not be repeated in the same order: ");
+                                        aux = Console.ReadLine();
+                                        aux = aux.Trim();
+                                    }while(aux == "");
+                                    prodId = int.Parse(aux);
+                                }while(prodId <= 0);
 
-                                Product p new Product(pame,comm);
-                                orders[i-1].AddProduct(product)p
+                                do
+                                {
+                                    do
+                                    {
+                                        Console.Write("What is product price? ");
+                                        aux = Console.ReadLine();
+                                        aux = aux.Trim();
+                                    }while(aux == "");
+                                    price = double.Parse(aux);
+                                }while(price <= 0);
+
+                                do
+                                {
+                                    do
+                                    {
+                                        Console.Write("What is the product quantity? ");
+                                        aux = Console.ReadLine();
+                                        aux = aux.Trim();
+                                    }while(aux == "");
+                                    quant = int.Parse(aux);
+                                }while(quant <= 0);
+
+                                orders[i-1].AddProduct(prodName, prodId, price, quant);
                             }
                         }
                         else

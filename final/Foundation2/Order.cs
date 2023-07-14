@@ -85,7 +85,7 @@ public class Order
         return _products.Count;
     }
 
-    public void AddProduct(string name, int id, float price, int quantity)
+    public void AddProduct(string name, int id, double price, int quantity)
     {
         _products.Add(new Product(name, id, price, quantity));
     }
