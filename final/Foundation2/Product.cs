@@ -75,6 +75,6 @@ public class Product
 
     public string List()
     {
-        return $"{_name,-16} {_id} {_price.ToString("0.##")} {_quantity} {(_price * _quantity).ToString("0.##")}";
+        return $"{_name,-16} {_id} {_price,13:N2} {_quantity,8} {(_price * _quantity),14:N2}";
     }
 }

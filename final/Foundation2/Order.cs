@@ -76,8 +76,8 @@ public class Order
 
     public double GetShippingCost()
     {
-        if(_customer.LiveInUSA() != 0) return 5.00;
-        else return 35.00;
+        if(_customer.LiveInUSA() != 0) return 5;
+        else return 35;
     }
 
     public int HowManyProductHas()
@@ -92,19 +92,19 @@ public class Order
 
     public string ShippingLabel()
     {
-        return $"{_customer.GetAddress()}\nShipping Cost $ {GetShippingCost().ToString("0.##")}";    
+        return $"{_customer.GetAddress()}\nShipping Cost $ {GetShippingCost(),42:N2}";    
     }
 
     public string PackingLabel()
     {
         double subTotal = 0;
-        string packingLabel = "Product Name     Product Id    Price      Quantity     SubTotal\n";
+        string packingLabel = "Product Name      Id      Price    Quantity    SubTotal\n";
         foreach(Product product in _products)
         {
             packingLabel += product.List() + "\n";
             subTotal += product.SubT();
         }
-        packingLabel += $"SubTotal $ {subTotal.ToString("0.##")}";
+        packingLabel += $"SubTotal $ {subTotal,47:N2}";
         return packingLabel;
     }
 

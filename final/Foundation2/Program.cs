@@ -8,7 +8,7 @@ class Program
 
         List<Order> orders = new List<Order>(), ordeRepository;
         Order ord1 = new Order("Cliftom Roberts", "1456", "Abraham Lincoln St", "Miami", "Florida", "USA");
-        ord1.AddProduct("Frezzer", 7310, 400, 3);
+        ord1.AddProduct("Frezzer", 731, 400, 3);
         ord1.AddProduct("SmartTV", 311, 800,2);
         ord1.AddProduct("kitchen", 112, 500,3);
         Order ord2 = new Order("Marcelo Caramayo", "379", "John F Kennedy St", "Colonia Juarez", "Chihuahua", "Mexico");
@@ -97,13 +97,9 @@ class Program
                             Console.WriteLine("Orders entered:");
                             foreach(Order order in orders)
                             {
-                                Console.Write($"{i+1}-");
+                                Console.Write($"\n{i+1}-");
                                 Console.WriteLine($"{order.ShippingLabel()}");
-                                if(order.HowManyProductHas() > 0)
-                                {
-                                    Console.WriteLine($"{order.PackingLabel()}");
-                                    Console.WriteLine($"Total cost $ {order.TotalCost()}");
-                                }
+                                if(order.HowManyProductHas() > 0) Console.WriteLine($"{order.PackingLabel()}\n   Total $ {order.TotalCost(),47:N2}");
                                 i++;
                             }
                             if(op == "3")
@@ -112,7 +108,7 @@ class Program
                                 {
                                     do
                                     {
-                                        Console.Write("To which of those orders do you wish to add a product?");
+                                        Console.Write("To which of those orders do you wish to add a product? ");
                                         aux = Console.ReadLine();
                                         aux = aux.Trim();
                                     }while(aux == "");
