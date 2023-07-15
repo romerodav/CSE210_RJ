@@ -165,7 +165,7 @@ class Program
                         }
                     }
                 }
-                Console.Write("Please press <Enter> to exit...");
+                Console.Write("\nPlease press <Enter> to exit...");
                 while (Console.ReadKey().Key != ConsoleKey.Enter);
             }
             Console.Clear();
