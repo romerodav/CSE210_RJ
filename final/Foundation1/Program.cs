@@ -67,7 +67,7 @@ class Program
                             Console.WriteLine("Video Tracks entered:");
                             foreach(Video vid in videos)
                             {
-                                Console.Write($"{i+1}-");
+                                Console.Write($"\n{i+1}-");
                                 vid.Show();
                                 i++;
                             }
@@ -105,11 +105,11 @@ class Program
                         else
                         {
                             videos.AddRange(videoRepository);
-                            Console.WriteLine(" Video Repository Added");
+                            Console.WriteLine("Video Repository Added");
                         }
                     }
                 }
-                Console.Write("Please press <Enter> to exit...");
+                Console.Write("\nPlease press <Enter> to exit...");
                 while (Console.ReadKey().Key != ConsoleKey.Enter);
             }
             Console.Clear();
