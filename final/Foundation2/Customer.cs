@@ -5,13 +5,13 @@ public class Customer
 
     public Customer(string name = "", string number = "", string street = "", string city = "", string stateOrProv = "", string country = "")
     {
-        _name = name;
+        _name = name.Trim();
         _address.Init(number, street, city, stateOrProv, country);
     }
 
     public void Init(string name, string number, string street, string city, string stateOrProv, string country)
     {
-        _name = name;
+        _name = name.Trim();
         _address.Init(number, street, city, stateOrProv, country);
     }
 
@@ -22,7 +22,7 @@ public class Customer
 
     public void SetName(string name)
     {
-        _name = name;
+        _name = name.Trim();
     }
 
     public string GetNumber()
@@ -32,7 +32,7 @@ public class Customer
 
     public void SetNumber(string number)
     {
-        _address.SetNumber(number);
+        _address.SetNumber(number.Trim());
     }
 
     public string GetStreet()
@@ -42,7 +42,7 @@ public class Customer
 
     public void SetStreet(string street)
     {
-        _address.SetStreet(street);
+        _address.SetStreet(street.Trim());
     }
 
     public string GetCity()
@@ -52,7 +52,7 @@ public class Customer
 
     public void SetCity(string city)
     {
-        _address.SetCity(city);
+        _address.SetCity(city.Trim());
     }
 
     public string GetStateOrProv()
@@ -62,7 +62,7 @@ public class Customer
 
     public void SetStateOrProv(string stateOrProv)
     {
-        _address.SetStateOrProv(stateOrProv);
+        _address.SetStateOrProv(stateOrProv.Trim());
     }
 
     public string GetCountry()
@@ -72,7 +72,7 @@ public class Customer
 
     public void SetCountry(string country)
     {
-        _address.SetCountry(country);
+        _address.SetCountry(country.Trim());
     }
 
     public string GetAddress()

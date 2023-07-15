@@ -5,13 +5,13 @@ public class Order
 
     public Order(string custName = "", string number = "", string street = "", string city = "", string stateOrProv = "", string country = "")
     {
-        _customer = new Customer(custName, number, street, city, stateOrProv, country);
+        _customer = new Customer(custName.Trim(), number.Trim(), street.Trim(), city.Trim(), stateOrProv.Trim(), country.Trim());
         _products = new List<Product>();
     }
 
     public void Init(string custName, string number, string street, string city, string stateOrProv, string country)
     {
-        _customer = new Customer(custName, number, street, city, stateOrProv, country);
+        _customer = new Customer(custName.Trim(), number.Trim(), street.Trim(), city.Trim(), stateOrProv.Trim(), country.Trim());
     }
 
     public string GetCustName()
@@ -21,7 +21,7 @@ public class Order
 
     public void SetCustName(string custName)
     {
-        _customer.SetName(custName);
+        _customer.SetName(custName.Trim());
     }
 
     public string GetAddressNumber()
@@ -31,7 +31,7 @@ public class Order
 
     public void SetAddressNumber(string addresNumber)
     {
-        _customer.SetNumber(addresNumber);
+        _customer.SetNumber(addresNumber.Trim());
     }
 
     public string GetStreet()
@@ -41,7 +41,7 @@ public class Order
 
     public void SetStreet(string street)
     {
-        _customer.SetStreet(street);
+        _customer.SetStreet(street.Trim());
     }
 
     public string GetCity()
@@ -51,7 +51,7 @@ public class Order
 
     public void SetCity(string city)
     {
-        _customer.SetCity(city);
+        _customer.SetCity(city.Trim());
     }
 
     public string GetStateOrProv()
@@ -61,7 +61,7 @@ public class Order
 
     public void SetStateOrProv(string stateOrProv)
     {
-        _customer.SetStateOrProv(stateOrProv);
+        _customer.SetStateOrProv(stateOrProv.Trim());
     }
 
     public string GetCountry()
@@ -71,7 +71,7 @@ public class Order
 
     public void SetCountry(string country)
     {
-        _customer.SetCountry(country);
+        _customer.SetCountry(country.Trim());
     }
 
     public double GetShippingCost()
@@ -87,7 +87,7 @@ public class Order
 
     public void AddProduct(string name, int id, double price, int quantity)
     {
-        _products.Add(new Product(name, id, price, quantity));
+        _products.Add(new Product(name.Trim(), id, price, quantity));
     }
 
     public string ShippingLabel()

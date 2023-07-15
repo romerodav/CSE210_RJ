@@ -14,7 +14,7 @@ public class Product
 
     public Product(string name, int id, double price = 0, int quantity = 0)
     {
-        _name = name;
+        _name = name.Trim();
         _id = id;
         _price = price;
         _quantity = quantity;
@@ -35,7 +35,7 @@ public class Product
 
     public void SetName(string name)
     {
-        _name = name;
+        _name = name.Trim();
     }
 
     public int GetId()

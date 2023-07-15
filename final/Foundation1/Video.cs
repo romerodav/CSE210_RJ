@@ -6,15 +6,15 @@ public class Video
 
     public Video(string title = "", string author = "", int length = 0)
     {
-        _title = title;
-        _author = author;
+        _title = title.Trim();
+        _author = author.Trim();
         _length = length;
     }
 
     public void Init(string title, string author, int length)
     {
-        _title = title;
-        _author = author;
+        _title = title.Trim();
+        _author = author.Trim();
         _length = length;
     }
 
@@ -25,7 +25,7 @@ public class Video
 
     public void SetTitle(string title)
     {
-        _title = title;
+        _title = title.Trim();
     }
 
     public string GetAuthor()
@@ -35,7 +35,7 @@ public class Video
 
     public void SetAuthor(string author)
     {
-        _author = author;
+        _author = author.Trim();
     }
 
     public int GetLength()

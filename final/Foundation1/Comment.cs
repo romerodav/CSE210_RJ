@@ -4,14 +4,14 @@ public class Comment
 
     public Comment(string name = "", string comment = "")
     {
-        _name = name;
-        _comment = comment;
+        _name = name.Trim();
+        _comment = comment.Trim();
     }
 
     public void Init(string name, string comment)
     {
-        _name = name;
-        _comment = comment;
+        _name = name.Trim();
+        _comment = comment.Trim();
     }
 
     public string GetName()
@@ -21,7 +21,7 @@ public class Comment
 
     public void SetName(string name)
     {
-        _name = name;
+        _name = name.Trim();
     }
 
     public string GetComment()
@@ -31,7 +31,7 @@ public class Comment
 
     public void SetComment(string comment)
     {
-        _comment = comment;
+        _comment = comment.Trim();
     }
 
     public void Show()
