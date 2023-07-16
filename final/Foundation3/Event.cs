@@ -1,6 +1,6 @@
 public class Event
 {
-    private string _title, _descript;
+    private string _type = "", _title, _descript;
     private int _year, _month, _day, _hour, _minute;
     private Address _address;
 
@@ -11,6 +11,7 @@ public class Event
         _year = year;
         _month = month;
         _day = day;
+        _hour = hour;
         _minute = minute;
         _address = new Address();
     }
@@ -22,7 +23,18 @@ public class Event
         _year = year;
         _month = month;
         _day = day;
+        _hour = hour;
         _minute = minute;
+    }
+
+    public string GetEvenType()
+    {
+        return _type;
+    }
+
+    public void SetEvenType(string type)
+    {
+        _type = type.Trim();
     }
 
     public string GetTitle()
@@ -77,12 +89,12 @@ public class Event
 
     public int GetHour()
     {
-        return _year;
+        return _hour;
     }
 
-    public void SetHour(int year)
+    public void SetHour(int hour)
     {
-        _year = year;
+        _hour = hour;
     }
 
     public int GetMinute()
@@ -93,6 +105,74 @@ public class Event
     public void SetMinute(int minute)
     {
         _minute = minute;
+    }
+
+    public string GetDate()
+    {
+        string month, day;
+
+        switch(_month)
+        {
+            case 1: 
+                month = "January";
+                break;
+            case 2: 
+                month = "February";
+                break;
+            case 3: 
+                month = "March";
+                break;
+            case 4: 
+                month = "April";
+                break;
+            case 5: 
+                month = "May";
+                break;
+            case 6: 
+                month = "June";
+                break;
+            case 7: 
+                month = "One";
+                break;
+            case 8: 
+                month = "July";
+                break;
+            case 9: 
+                month = "August";
+                break;
+            case 10: 
+                month = "September";
+                break;
+            case 11: 
+                month = "October";
+                break;
+            case 12: 
+                month = "November";
+                break;
+            default:
+                month = "December";
+                break;
+        }
+
+        switch(_day)
+        {
+            case 1: 
+                day = "st";
+                break;
+            case 2: 
+                day = "nd";
+                break;
+            default:
+                day = "th";
+                break;
+        }
+
+        return $"{month} {_day}{day} {_year}";
+    }
+
+    public string GetTime()
+    {
+        return $"{_hour}:{_minute}";
     }
 
     public void IntroAddress(string number, string street, string city, string stateOrProv, string country)
@@ -163,5 +243,15 @@ public class Event
     public string SingleAddress()
     {
         return $"{_address.GetNumber()} {_address.GetStreet()}\n{_address.GetCity()}\n{_address.GetStateOrProv()}, {_address.GetCountry()}";
+    }
+
+    public string StanDet()
+    {
+        return $"Title: {_title}\nDescription: {_descript}\n{GetDate()} {GetTime()}\nAddress: {SingleAddress()}";
+    }
+
+    public string ShortDescript()
+    {
+        return $"Type of event: {_type}\nTitle: {_title}\n{GetDate()}";
     }
 }
