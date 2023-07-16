@@ -21,13 +21,13 @@ class Program
         ord3.AddProduct("LapTop", 418, 700, 3);
         ordeRepository = new List<Order>(){ord1, ord2, ord3};
 
-        double price;
-        int i, prodId, quant;
+        double price, tot = 0;
+        int i, prodId, quant, n = 0;
         string op, prodName, customer, stNumber, street, city, stateOrProv, country, aux;
 
         do
         {
-            Console.Write("Menu Options:\n\n1-Create an Order Track\n2-List Orders\n3-Add Product\n4-Load Pre Saved Orders\n5-Quit\n\nPlease enter your option: ");
+            Console.Write($"{n} order/s entered for $ {tot:N2}\nMenu Options:\n\n1-Create an Order Track\n2-List Orders\n3-Add Product\n4-Load Pre Saved Orders\n5-Quit\n\nPlease enter your option: ");
             op = Console.ReadLine();
             op = op.Trim();
 
@@ -94,14 +94,18 @@ class Program
                         if(op == "2" | op == "3")
                         {
                             i = 0;
+                            n = 0;
+                            tot = 0;
                             Console.WriteLine("Orders entered:");
                             foreach(Order order in orders)
                             {
                                 Console.Write($"\n{i+1}-");
                                 Console.WriteLine($"{order.ShippingLabel()}");
-                                if(order.HowManyProductHas() > 0) Console.WriteLine($"{order.PackingLabel()}\n   Total $ {order.TotalCost(),47:N2}");
+                                if(order.HowManyProductHas() > 0) Console.WriteLine($"\n{order.PackingLabel()}\n\n   Total $ {order.TotalCost(),47:N2}");
+                                tot += order.TotalCost();
                                 i++;
                             }
+                            n = i;
                             if(op == "3")
                             {
                                 do
@@ -162,6 +166,15 @@ class Program
                         {
                             orders.AddRange(ordeRepository);
                             Console.WriteLine("Repository Order Added");
+                            i = 0;
+                            n = 0;
+                            tot = 0;
+                            foreach(Order order in orders)
+                            {
+                                tot += order.TotalCost();
+                                i++;
+                            }
+                            n = i;
                         }
                     }
                 }

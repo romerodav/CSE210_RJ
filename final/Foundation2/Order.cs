@@ -92,7 +92,7 @@ public class Order
 
     public string ShippingLabel()
     {
-        return $"{_customer.GetAddress()}\nShipping Cost $ {GetShippingCost(),42:N2}";    
+        return $"{_customer.GetAddress()}\n\nShipping Cost to pay $ {GetShippingCost(),35:N2}";    
     }
 
     public string PackingLabel()
