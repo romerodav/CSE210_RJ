@@ -94,18 +94,15 @@ class Program
                         if(op == "2" | op == "3")
                         {
                             i = 0;
-                            n = 0;
-                            tot = 0;
                             Console.WriteLine("Orders entered:");
                             foreach(Order order in orders)
                             {
                                 Console.Write($"\n{i+1}-");
                                 Console.WriteLine($"{order.ShippingLabel()}");
                                 if(order.HowManyProductHas() > 0) Console.WriteLine($"\n{order.PackingLabel()}\n\n   Total $ {order.TotalCost(),47:N2}");
-                                tot += order.TotalCost();
                                 i++;
                             }
-                            n = i;
+
                             if(op == "3")
                             {
                                 do
@@ -166,16 +163,16 @@ class Program
                         {
                             orders.AddRange(ordeRepository);
                             Console.WriteLine("Repository Order Added");
-                            i = 0;
-                            n = 0;
-                            tot = 0;
-                            foreach(Order order in orders)
-                            {
-                                tot += order.TotalCost();
-                                i++;
-                            }
-                            n = i;
                         }
+                        i = 0;
+                        n = 0;
+                        tot = 0;
+                        foreach(Order order in orders)
+                        {
+                            tot += order.TotalCost();
+                            i++;
+                        }
+                        n = i;
                     }
                 }
                 Console.Write("\nPlease press <Enter> to exit...");
