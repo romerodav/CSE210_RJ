@@ -6,8 +6,8 @@ public class Event
 
     public Event(string title = "", string descript = "", int year = 0, int month = 0, int day = 0, int hour = 0, int minute = 0)
     {
-        _title = title;
-        _descript = descript;
+        _title = title.Trim();
+        _descript = descript.Trim();
         _year = year;
         _month = month;
         _day = day;
@@ -132,25 +132,25 @@ public class Event
                 month = "June";
                 break;
             case 7: 
-                month = "One";
-                break;
-            case 8: 
                 month = "July";
                 break;
-            case 9: 
+            case 8: 
                 month = "August";
                 break;
-            case 10: 
+            case 9: 
                 month = "September";
                 break;
-            case 11: 
+            case 10: 
                 month = "October";
                 break;
-            case 12: 
+            case 11: 
                 month = "November";
                 break;
-            default:
+            case 12: 
                 month = "December";
+                break;
+            default:
+                month = "Error";
                 break;
         }
 
@@ -240,17 +240,17 @@ public class Event
         else return 0;
     }
 
-    public string SingleAddress()
+    public string GetSingleAddress()
     {
         return $"{_address.GetNumber()} {_address.GetStreet()}\n{_address.GetCity()}\n{_address.GetStateOrProv()}, {_address.GetCountry()}";
     }
 
-    public string StanDet()
+    public string GetStanDet()
     {
-        return $"Title: {_title}\nDescription: {_descript}\n{GetDate()} {GetTime()}\nAddress: {SingleAddress()}";
+        return $"Title: {_title}\nDescription: {_descript}\n{GetDate()} {GetTime()}\nAddress: {GetSingleAddress()}";
     }
 
-    public string ShortDescript()
+    public string GetShortDescript()
     {
         return $"Type of event: {_type}\nTitle: {_title}\n{GetDate()}";
     }
