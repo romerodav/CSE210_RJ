@@ -5,10 +5,13 @@ class Program
         Console.WriteLine("Hello Foundation3 World!");
 
         string op;
-        List<Event> events = new List<Event>();
-        Lecture lecture;
-        Reception reception;
-        Outdoor outdoor;
+        Lecture lecture, lect = new Lecture("George Spacey", 50, "Self Control", "The speaker search deeply into some internal hide arms, we did not know that we have, to face our best challenges", 2023, 10, 25, 18, 30);
+        Reception reception, recept = new Reception("reception@thebest.com","Peter and Louise wedding", "You are cordially invated to join us, after the Washington DC Temple ceremony", 2023, 11, 12, 13, 0);
+        Outdoor outdoor, outd = new Outdoor("We are waiting for a sunny day!", "Looking for a lasting friendship", "Let give yourself an oportunity to meet interesting single people, for several parts of the world", 2023, 12, 2, 10, 0);
+        lect.IntroAddress("2368", "Royal St", "London", "England", "United Kingdom");
+        recept.IntroAddress("4136", "Benjamin Franklin St", "Washington DC", "Columbia", "USA");
+        outd.IntroAddress("382", "Jeanne de Arc", "Desvres", "Calais", "France");
+        List<Event> events = new List<Event>(), repository = new List<Event>(){lect, recept, outd};
 
         do
         {
@@ -256,7 +259,8 @@ class Program
                                 }
                                 else
                                 {
-                                    Console.WriteLine();
+                                    events.AddRange(repository);
+                                    Console.WriteLine("Repository added");
                                 }
                             }
                         }

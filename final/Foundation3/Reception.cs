@@ -20,6 +20,6 @@ public class Reception : Event
 
     public string FullDet()
     {
-        return $"{GetStanDet()}\nEvent: {GetEvenType()}\nSpeaker: {_rsvpMail}";
+        return $"{GetStanDet()}\nEvent: {GetEvenType()}\nElectronic mail for RSVP: {_rsvpMail}";
     }
 }

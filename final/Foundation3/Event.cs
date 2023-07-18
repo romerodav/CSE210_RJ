@@ -172,7 +172,7 @@ public class Event
 
     public string GetTime()
     {
-        return $"{_hour}:{_minute}";
+        return $"{_hour.ToString("D2")}:{_minute.ToString("D2")}";
     }
 
     public void IntroAddress(string number, string street, string city, string stateOrProv, string country)
@@ -247,11 +247,11 @@ public class Event
 
     public string GetStanDet()
     {
-        return $"Title: {_title}\nDescription: {_descript}\n{GetDate()} {GetTime()}\nAddress: {GetSingleAddress()}";
+        return $"\nTitle: {_title}\nDescription: {_descript}\n{GetDate()} {GetTime()}\nAddress: {GetSingleAddress()}";
     }
 
     public string GetShortDescript()
     {
-        return $"Type of event: {_type}\nTitle: {_title}\n{GetDate()}";
+        return $"\nEvent: {_type}\nTitle: {_title}\n{GetDate()}";
     }
 }
