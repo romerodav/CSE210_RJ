@@ -4,7 +4,8 @@ class Program
     {
         Console.WriteLine("Hello Foundation3 World!");
 
-        string op;
+        string op, opt, title, descript, number, street, city, stateOrProv, country, speaker, rsvpMail, weatherFor, aux;
+        int year, month, day, maxDay, hour, minute, capacity;
         Lecture lecture, lect = new Lecture("George Spacey", 50, "Self Control", "The speaker search deeply into some internal hide arms, we did not know that we have, to face our best challenges", 2023, 10, 25, 18, 30);
         Reception reception, recept = new Reception("reception@thebest.com","Peter and Louise wedding", "You are cordially invated to join us, after the Washington DC Temple ceremony", 2023, 11, 12, 13, 0);
         Outdoor outdoor, outd = new Outdoor("We are waiting for a sunny day!", "Looking for a lasting friendship", "Let give yourself an oportunity to meet interesting single people, for several parts of the world", 2023, 12, 2, 10, 0);
@@ -23,10 +24,6 @@ class Program
             {
                 if(op == "1")
                 {
-
-                    string opt, title, descript, number, street, city, stateOrProv, country, speaker, rsvpMail, weatherFor, aux;
-                    int year, month, day, maxDay, hour, minute, capacity;
-
                     Console.WriteLine("The types of Events are:\n1-Lecture\n2-Reception\n3-Outdoor Gathering");
 
                     do
@@ -65,7 +62,7 @@ class Program
                     {
                         do
                         {
-                            Console.Write("Please enter the month of the Event: ");
+                            Console.Write("Please enter the number of the month of the Event: ");
                             aux = Console.ReadLine();
                             aux = aux.Trim();
                         }while(aux == "");
@@ -141,7 +138,7 @@ class Program
                     {
                         do
                         {
-                            Console.Write("Please enter the minutes of hour of the Event: ");
+                            Console.Write("Please enter the minutes of the hour of the Event: ");
                             aux = Console.ReadLine();
                             aux = aux.Trim();
                         }while(aux == "");
