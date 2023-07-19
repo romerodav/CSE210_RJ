@@ -16,7 +16,7 @@ class Program
 
         do
         {
-            Console.Write("Menu Options:\n\n1-Create a new Activity\n2-Get Summary\n3-Load Pre Recorded Events\n4-Quit\n\nPlease enter your option: ");
+            Console.Write("Menu Options:\n\n1-Create a new Activity\n2-Get Summary\n3-Load Pre Recorded Activities\n4-Quit\n\nPlease enter your option: ");
             op = Console.ReadLine();
             op = op.Trim();
 

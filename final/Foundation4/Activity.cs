@@ -2,7 +2,7 @@ public abstract class Activity
 {
     private int _year, _month, _day;
     private double _length;
-    private string _activity;
+    private string _activity = "";
 
     public Activity(int year = 0, int month = 0, int day = 0, double length = 0)
     {
