@@ -247,11 +247,11 @@ class Program
                             {
                                 if(op == "4") foreach(Event evento in events)
                                 {
-                                    if(evento.GetEvenType() == "Lecture") Console.WriteLine($"{((Lecture)evento).FullDet()}");
+                                    if(evento.GetEvenType() == "Lecture") Console.WriteLine($"{((Lecture)evento).GetFullDet()}");
                                     else
                                     {
-                                        if (evento.GetEvenType() == "Reception") Console.WriteLine($"{((Reception)evento).FullDet()}");
-                                        else Console.WriteLine($"{((Outdoor)evento).FullDet()}");
+                                        if (evento.GetEvenType() == "Reception") Console.WriteLine($"{((Reception)evento).GetFullDet()}");
+                                        else Console.WriteLine($"{((Outdoor)evento).GetFullDet()}");
                                     }
                                 }
                                 else

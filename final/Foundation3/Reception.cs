@@ -18,7 +18,7 @@ public class Reception : Event
         _rsvpMail = rsvpMail.Trim();
     }
 
-    public string FullDet()
+    public string GetFullDet()
     {
         return $"{GetStanDet()}\nEvent: {GetEvenType()}\nElectronic mail for RSVP: {_rsvpMail}";
     }

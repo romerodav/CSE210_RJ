@@ -30,7 +30,7 @@ public class Lecture : Event
         _capacity = capacity;
     }
 
-    public string FullDet()
+    public string GetFullDet()
     {
         return $"{GetStanDet()}\nEvent: {GetEvenType()}\nSpeaker: {_speaker}\nCapacity: {_capacity} people";
     }

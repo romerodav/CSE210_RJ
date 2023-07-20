@@ -18,7 +18,7 @@ public class Outdoor : Event
         _weatherFor = weatherFor.Trim();
     }
 
-    public string FullDet()
+    public string GetFullDet()
     {
         return $"{GetStanDet()}\nEvent: {GetEvenType()}\nWeather Forecast: {_weatherFor}";
     }
